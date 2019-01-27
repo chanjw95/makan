@@ -22,23 +22,33 @@ export default class LoginScreen extends React.Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
-      <ScrollView style={styles.container}>
-        <Button
-          title="Customer"
-          onPress={() => navigate("CustLogin", {screen: "CustomerLoginScreen"})}
-          color="red"
-        />
-        <Button
-          title="Cook"
+      <View style={styles.container}>
+        <TouchableOpacity
+          style={styles.customerButton}
+          onPress={() => navigate("CustomerLogin", {screen: "CustomerLoginScreen"})}
+        >
+          <Text style={styles.buttonText}>Customer</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.cookButton}
           onPress={() => navigate("CookLogin", {screen: "CookLoginScreen"})}
-          color="green"
-        />
-        <Button
-          title="Kitchen"
+        >
+          <Text style={styles.buttonText}>Cook</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.kitchenButton}
           onPress={() => navigate("KitchenLogin", {screen: "KitchenLoginScreen"})}
-          color="blue"
-        />
-      </ScrollView>
+        >
+          <Text style={styles.buttonText}>Kitchen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.signUp}
+          onPress={() => navigate("SignUp", {screen: "SignUpScreen"})}
+        >
+          <Text style={styles.buttonText}>Sign Up</Text>
+        </TouchableOpacity>
+      </View>
     );
   };
 }
@@ -46,7 +56,55 @@ export default class LoginScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
     paddingTop: 15,
     backgroundColor: '#fff',
+  },
+  customerButton: {
+    alignItems: 'center',
+    backgroundColor: '#ff0000',
+    width: 300,
+    height: 60,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 10,
+    margin: 20,
+  },
+  cookButton: {
+    alignItems: 'center',
+    backgroundColor: '#33cc33',
+    width: 300,
+    height: 60,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 10,
+    margin: 20,
+  },
+  kitchenButton: {
+    alignItems: 'center',
+    backgroundColor: '#3385ff',
+    width: 300,
+    height: 60,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 10,
+    margin: 20,
+  },
+  signUp: {
+    alignItems: 'center',
+    width: 300,
+    height: 60,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 10,
+    margin: 20,
+  },
+  buttonText: {
+    fontSize: 35,
+    alignItems: 'center',
   },
 });

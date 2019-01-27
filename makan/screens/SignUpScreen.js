@@ -12,41 +12,51 @@ import {
   Button,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import { SegmentedControls } from 'react-native-radio-buttons';
 import { WebBrowser } from 'expo';
 import { ExpoLinksView } from '@expo/samples';
 
 import { MonoText } from '../components/StyledText';
 
-export default class CookLoginScreen extends React.Component {
+export default class SignUpScreen extends React.Component {
   state = {
     email: '',
     password: '',
   };
 
   onLogin() {
-    const { email, password } = this.state;
+    const { email, password, password2 } = this.state;
 
-    Alert.alert('Credentials', `email: ${email} + password: ${password}`);
+    Alert.alert('Credentials', `email: ${email} + password: ${password} + password2: ${password2}`);
   }
+
   static navigationOptions = {
-    title: 'Cook Login'
+    title: 'Sign Up',
   };
   render() {
-    const { navigate } = this.props.navigation;
+    const {navigate} = this.props.navigation;
+
     return (
       <View style = {styles.container}>
         <TextInput
           value = {this.state.email}
           keyboardType = 'email-address'
           onChangeText={(email) => this.setState({ email })}
-          placeholder ='email'
+          placeholder ='Email'
           placeholderTextColor = 'black'
           style={styles.input}
         />
         <TextInput
           value = {this.state.password}
           onChangeText={(password) => this.setState({ password })}
-          placeholder ='password'
+          placeholder ='Password'
+          placeholderTextColor = 'black'
+          style={styles.input}
+        />
+        <TextInput
+          value = {this.state.password2}
+          onChangeText={(password2) => this.setState({ password2 })}
+          placeholder ='Re-enter Password'
           placeholderTextColor = 'black'
           style={styles.input}
         />
@@ -84,13 +94,13 @@ const styles = StyleSheet.create({
   button: {
   alignItems: 'center',
   backgroundColor: 'powderblue',
-  width: 200,
+  width: 100,
   height: 44,
   padding: 10,
   borderWidth: 1,
   borderColor: 'black',
   borderRadius: 25,
-  marginBottom: 10,
+  marginBottom: 10
   },
   buttonText: {
     fontSize: 20,
