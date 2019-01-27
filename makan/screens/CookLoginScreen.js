@@ -32,9 +32,9 @@ export default class CookLoginScreen extends React.Component {
     title: 'Cook Login'
   };
   render() {
-    const { navigate } = this.props.navigation;
+    const {navigate} = this.props.navigation;
     return (
-      <View style = {styles.container}>
+      <ScrollView style = {styles.container}>
         <TextInput
           value = {this.state.email}
           keyboardType = 'email-address'
@@ -50,21 +50,13 @@ export default class CookLoginScreen extends React.Component {
           placeholderTextColor = 'black'
           style={styles.input}
         />
-        <View style= {styles.buttonsView}>
-          <TouchableOpacity
-            style = {styles.button}
-            onPress = {this.onLogin.bind(this)}
-          >
-            <Text style = {styles.buttonText}>Sign Up</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style= {styles.button}
-            onPress = {() => navigate('Auth', {name: 'LoginScreen'})}
-          >
-            <Text style = {styles.buttonText}>Back</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+        <TouchableOpacity
+          style = {styles.button}
+          onPress = {this.onLogin.bind(this)}
+        >
+          <Text style = {styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+      </ScrollView>
     );
   };
 }
@@ -72,14 +64,8 @@ export default class CookLoginScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     paddingTop: 15,
     backgroundColor: '#fff',
-  },
-  buttonsView: {
-    flex: 2,
-    flexDirection: 'column',
-    alignItems: 'center',
   },
   button: {
   alignItems: 'center',
