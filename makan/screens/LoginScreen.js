@@ -12,7 +12,7 @@ import {
 import { StackNavigator } from 'react-navigation';
 import { WebBrowser } from 'expo';
 import { ExpoLinksView } from '@expo/samples'; 
-import { MonoText } from '../components/StyledText';
+import { MonoText } from '../components/StyledText'; 
 
 export default class LoginScreen extends React.Component {
   static navigationOptions = {
@@ -30,6 +30,7 @@ export default class LoginScreen extends React.Component {
           /> 
         </View> 
 
+        
          <TextInput 
             placeholder= "Username or Email"
             placeholderTextColor='rgba(255,255,255,0.8)'
@@ -49,7 +50,7 @@ export default class LoginScreen extends React.Component {
             ref={(input) => this.passwordInput = input}
             style={styles.input} 
          />
-
+       
         <TouchableOpacity style={styles.buttonContainer}>
             <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity> 
