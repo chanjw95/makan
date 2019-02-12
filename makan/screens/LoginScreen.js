@@ -50,8 +50,10 @@ export default class LoginScreen extends React.Component {
             style={styles.input}
          />
 
-        <TouchableOpacity style={styles.buttonContainer}>
-            <Text style={styles.buttonText}>Login</Text>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+        >
+          <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
         <View style = {styles.signupTextCont}>
