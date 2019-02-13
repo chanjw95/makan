@@ -14,7 +14,7 @@ import { WebBrowser } from 'expo';
 import { ExpoLinksView } from '@expo/samples'; 
 import { MonoText } from '../components/StyledText'; 
 
-export default class LoginScreen extends React.Component {
+export default class SignUpScreen extends React.Component {
   static navigationOptions = {
    header: null 
   };
@@ -29,6 +29,24 @@ export default class LoginScreen extends React.Component {
             source ={ require('../assets/images/logo-white.png')} 
           /> 
         </View> 
+        <TextInput 
+            placeholder= "First name"
+            placeholderTextColor='rgba(255,255,255,0.8)'
+            returnKeyType="next"
+            onSubmitEditing={()=> this.passwordInput.focus()}
+            keyboardType="email-address"
+            autoCapitalize="none"
+            style={styles.input}
+         />
+         <TextInput 
+            placeholder= "Last Name"
+            placeholderTextColor='rgba(255,255,255,0.8)'
+            returnKeyType="next"
+            onSubmitEditing={()=> this.passwordInput.focus()}
+            keyboardType="email-address"
+            autoCapitalize="none"
+            style={styles.input}
+         />
 
          <TextInput 
             placeholder= "Email"
@@ -44,22 +62,29 @@ export default class LoginScreen extends React.Component {
             placeholder= "Password"
             placeholderTextColor='rgba(255,255,255,0.8)'
             secureTextEntry
+            returnKeyType="next"
+            ref={(input) => this.passwordInput = input}
+            style={styles.input} 
+         />
+        <TextInput
+            placeholder= "Phone Number"
+            placeholderTextColor='rgba(255,255,255,0.8)' 
             returnKeyType="send"
             ref={(input) => this.passwordInput = input}
             style={styles.input} 
          />
-       
-        <TouchableOpacity style={styles.buttonContainer}>
-            <Text style={styles.buttonText}>Login</Text>
+
+         <TouchableOpacity style={styles.buttonContainer}>
+            <Text style={styles.buttonText}>SignUp</Text>
         </TouchableOpacity> 
 
         <View style = {styles.signupTextCont}>
-         <Text style = {styles.signupText}> Don't have an account yet?  </Text>
+         <Text style = {styles.signupText}> Already have an account?  </Text>
            <TouchableOpacity
           style={styles.buttons}
-          onPress={() => navigate("SignUp", {screen: "SignUpScreen"})}>
+          onPress={() => navigate("Login", {screen: "LoginScreen"})}>
         
-          <Text style={styles.buttonText}>Sign Up</Text>
+          <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
       </View> 
 
