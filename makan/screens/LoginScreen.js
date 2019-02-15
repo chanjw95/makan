@@ -23,7 +23,8 @@ export default class LoginScreen extends React.Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      auth_token: ''
     }
   this.handleEmail = this.handleEmail.bind(this);
   this.handlePassword = this.handlePassword.bind(this);
@@ -41,7 +42,26 @@ export default class LoginScreen extends React.Component {
   }
   handleSubmit() {
     console.log(this.state.email)
+    console.log(this.state.password)
+    let user_email = this.state.email;
+    let user_password = this.state.password;
+
+    //need to change to local ip address
+    fetch("http://192.168.1.207:3000/auth/login", {
+      method: "post",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: JSON.stringify({
+        email: user_email,
+        password: user_password
+      })
+    })
+    .then(function(res) {console.log(res) })
+    .catch(function(res) {console.log(res) })
   }
+
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -56,7 +76,7 @@ export default class LoginScreen extends React.Component {
 
 
          <TextInput
-            placeholder= "Username or Email"
+            placeholder= "Email"
             placeholderTextColor='rgba(255,255,255,0.8)'
             returnKeyType="next"
             onSubmitEditing={()=> this.passwordInput.focus()}
