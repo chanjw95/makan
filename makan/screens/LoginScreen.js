@@ -7,7 +7,8 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  Alert
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { WebBrowser } from 'expo';
@@ -18,6 +19,29 @@ export default class LoginScreen extends React.Component {
   static navigationOptions = {
    header: null
   };
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: ''
+    }
+  this.handleEmail = this.handleEmail.bind(this);
+  this.handlePassword = this.handlePassword.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleEmail(e) {
+    this.setState({
+      email: e.nativeEvent.text
+    });
+  }
+  handlePassword(e) {
+    this.setState({
+      password: e.nativeEvent.text
+    });
+  }
+  handleSubmit() {
+    console.log(this.state.email)
+  }
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -39,6 +63,7 @@ export default class LoginScreen extends React.Component {
             keyboardType="email-address"
             autoCapitalize="none"
             style={styles.input}
+            onChange={this.handleEmail}
          />
 
          <TextInput
@@ -48,23 +73,25 @@ export default class LoginScreen extends React.Component {
             returnKeyType="send"
             ref={(input) => this.passwordInput = input}
             style={styles.input}
+            onChange={this.handlePassword}
          />
 
         <TouchableOpacity
           style={styles.buttonContainer}
+          onPress={this.handleSubmit}
         >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
         <View style = {styles.signupTextCont}>
          <Text style = {styles.signupText}> Don't have an account yet?  </Text>
-           <TouchableOpacity
+         <TouchableOpacity
           style={styles.buttons}
           onPress={() => navigate("SignUp", {screen: "SignUpScreen"})}>
 
-          <Text style={styles.buttonText}>Sign Up</Text>
-        </TouchableOpacity>
-      </View>
+            <Text style={styles.buttonText}>Sign Up</Text>
+         </TouchableOpacity>
+        </View>
 
       </KeyboardAvoidingView>
 
