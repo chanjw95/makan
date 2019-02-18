@@ -54,8 +54,14 @@ export default class LoginScreen extends React.Component {
         password: this.state.password
       })
     })
-    .then(function(res) {console.log(res) })
-    .catch(function(res) {console.log(res) })
+    .then (response => {
+      if(response.ok) {
+        this.props.navigation.navigate("Main", {screen:"home"})
+      }
+      else {
+        throw new Error('something went wrong')
+      }
+    })
   }
 
   render() {
