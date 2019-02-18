@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
   KeyboardAvoidingView,
-  Alert
+  Alert,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { WebBrowser } from 'expo';
@@ -41,21 +41,17 @@ export default class LoginScreen extends React.Component {
     });
   }
   handleSubmit() {
-    console.log(this.state.email)
-    console.log(this.state.password)
-    let user_email = this.state.email;
-    let user_password = this.state.password;
-
     //need to change to local ip address
     fetch("http://192.168.1.207:3000/auth/login", {
+      credentials: 'include',
       method: "post",
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: user_email,
-        password: user_password
+        email: this.state.email,
+        password: this.state.password
       })
     })
     .then(function(res) {console.log(res) })
