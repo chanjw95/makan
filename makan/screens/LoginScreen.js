@@ -75,8 +75,7 @@ export default class LoginScreen extends React.Component {
             source ={ require('../assets/images/logo-white.png')}
           />
         </View>
-
-
+        
          <TextInput
             placeholder= "Email"
             placeholderTextColor='rgba(255,255,255,0.8)'
