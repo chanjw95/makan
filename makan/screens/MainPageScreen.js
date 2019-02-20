@@ -16,7 +16,7 @@ import { MonoText } from '../components/StyledText';
 
 export default class MainPageScreen extends React.Component {
   static navigationOptions = {
-   header: null
+   title: 'Login'
   };
   render() {
     const {navigate} = this.props.navigation;
