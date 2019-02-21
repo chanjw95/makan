@@ -24,7 +24,6 @@ export default class LoginScreen extends React.Component {
     this.state = {
       email: '',
       password: '',
-      auth_token: ''
     }
   this.handleEmail = this.handleEmail.bind(this);
   this.handlePassword = this.handlePassword.bind(this);
@@ -75,7 +74,7 @@ export default class LoginScreen extends React.Component {
             source ={ require('../assets/images/logo-white.png')}
           />
         </View>
-        
+
          <TextInput
             placeholder= "Email"
             placeholderTextColor='rgba(255,255,255,0.8)'
@@ -110,7 +109,7 @@ export default class LoginScreen extends React.Component {
           style={styles.buttons}
           onPress={() => navigate("SignUp", {screen: "SignUpScreen"})}>
 
-            <Text style={styles.buttonText}>Sign Up</Text>
+            <Text style={styles.buttonText}>Sign-Up</Text>
          </TouchableOpacity>
         </View>
 
@@ -124,7 +123,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
-    backgroundColor: '#de5a41',
+    backgroundColor: '#FF420E',
     justifyContent:'center',
     alignItems:'center',
     padding: 20
