@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {components} from 'react';
+import {AppRegistry} from 'react-native';
 import { createAppContainer, createSwitchNavigator, createStackNavigator } from 'react-navigation';
 
 import LoginScreen from '../screens/LoginScreen';
@@ -8,9 +9,12 @@ import CustomerLoginScreen from '../screens/CustomerLoginScreen';
 import CookLoginScreen from '../screens/CookLoginScreen';
 import KitchenLoginScreen from '../screens/KitchenLoginScreen';
 import MainTabNavigator from './MainTabNavigator';
+import CookFlatList from '../components/CookList';
+
+AppRegistry.registerComponent('makan', ()=> CookFlatList);
 
 const AuthStack = createStackNavigator({ Login: LoginScreen });
-const MainPage = createStackNavigator({ MainPage: MainPageScreen });
+const MainPage = createStackNavigator({ MainPage: MainPageScreen});
 const SignUp = createStackNavigator({ SignUp: SignUpScreen });
 const Login = createStackNavigator({ Login: LoginScreen });
 const CustomerLoginStack = createStackNavigator({ CustomerLogin: CustomerLoginScreen });
@@ -20,6 +24,7 @@ const KitchenLoginStack = createStackNavigator({ KitchenLogin: KitchenLoginScree
 export default createAppContainer(createSwitchNavigator({
   // You could add another route here for authentication.
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
+
   Main: MainTabNavigator,
   Auth: AuthStack,
   MainPage: MainPageScreen,
