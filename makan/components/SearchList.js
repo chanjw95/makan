@@ -1,28 +1,20 @@
 import React , {Component} from "react";
 import { AppRegistry, FlatList, StyleSheet, TouchableOpacity, Image, Dimensions, Text, View } from "react-native"; 
 
-import CookListData from './Data/CookData';
+import SearchListData from './Data/SearchData';
 
-class CookListItem extends Component {
+class SearchListItem extends Component {
   render() {
     return(
 
        <View behavior="padding" style={styles.container}>
         
            <TouchableOpacity style={styles.buttonContainer}>
-               
-                <Image
-                style={styles.logo}
-                source ={ require('../assets/images/Example.jpg')}
-                  />
+ 
                    <View style = {{flex:1,  }}>
-                      <Text style={styles.RestaurantNameText}> {"\n"}{this.props.item.name} </Text>
-                      <Text style={styles.RestaurantDetailsText}>{this.props.item.foodType}{"\n"} 
-                                                                  {this.props.item.rating}{"\n"}</Text>
+                      <Text style={styles.SearchNameText}> {this.props.item.name} {"\n"}</Text> 
                    </View>
           </TouchableOpacity>
-
-
       </View>
     
       );
@@ -34,14 +26,14 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     backgroundColor: '#FFFFFF',
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    borderBottomWidth: .5,
   },    
   buttonContainer: {
     backgroundColor: '#FFFFFF' ,
     width:Dimensions.get('window').width,
     flexDirection:'column',
     alignItems: 'center',
-    borderBottomWidth: .5,
 
   } , 
    logo:{        
@@ -50,10 +42,10 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width -20,
     height: 160,  
   }, 
-   RestaurantNameText:{
+   SearchNameText:{
     textAlign:'left',
     color: 'black',
-    fontWeight: 'bold',
+    paddingTop: 8,
     fontSize: 16
     },
   RestaurantDetailsText:{
@@ -63,15 +55,14 @@ const styles = StyleSheet.create({
     },
   });
 
-
 export default class BasicFLatList extends Component {
   render () {
     return(
       <View style = {{flex:1, marginTop:22}}>
         <FlatList
-        data = {CookListData}
+        data = {SearchListData}
         renderItem = {({item, index})=>{
-        return (<CookListItem item={item} index= {index}> </CookListItem>);
+        return (<SearchListItem item={item} index= {index}> </SearchListItem>);
         
       }}>
         </FlatList>

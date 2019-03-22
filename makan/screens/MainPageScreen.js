@@ -18,8 +18,10 @@ import { ExpoLinksView } from '@expo/samples';
 import { MonoText } from '../components/StyledText'; 
 import {  createBottomTabNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Akira } from 'react-native-textinput-effects';
 
 import CookListItem from '../components/CookList'; 
+import SearchListItem from '../components/SearchList';
 import MainHeader from '../components/Header'; 
  
 export class Home extends React.Component {
@@ -42,17 +44,30 @@ export class Home extends React.Component {
 export class Search extends React.Component {
   render() {
      const HeaderTitle = { 
-      Search: "Search Screen" 
+      Search: "Search" 
       }
     const {navigate} = this.props.navigation;
     return (
-    <View style={{flex: 1 }}>
-        <MainHeader name={HeaderTitle.Search}/>
 
-       <View behavior="padding" style={styles.container}>
+    <View style={{flex: 1 }}>
+
+        <MainHeader name={HeaderTitle.Search}/>
+         <Text></Text>
+        <Akira
+    label={'Search'}
+    
+    borderColor={'#a5d1cc'}
+    inputPadding={16}
+    labelHeight={24}
+    labelStyle={{ color: '#ac83c4' }}
+  />
+           <SearchListItem style={{ height:Dimensions.get('window').height -60 }}/>
+       <Text>{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
+ 
+      
        
-            <Text style = {styles.standardText}> A list of all food types will be displayed here  </Text>
-      </View>
+         
+   
       </View>
     );
   };
