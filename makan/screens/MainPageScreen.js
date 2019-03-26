@@ -22,6 +22,7 @@ import { Akira } from 'react-native-textinput-effects';
 
 import CookListItem from '../components/CookList'; 
 import SearchListItem from '../components/SearchList';
+import SettingsMenu from '../components/SettingsMenu';
 import MainHeader from '../components/Header'; 
  
 export class Home extends React.Component {
@@ -83,9 +84,7 @@ export class Settings extends React.Component {
 
     <View style={{flex: 1 }}>
         <MainHeader name={HeaderTitle.Settings}/>
-       <View behavior="padding" style={styles.container}>
-            <Text style = {styles.standardText}> Users will be able to change their settings here  </Text>
-      </View>
+       <SettingsMenu  />
       </View>
     );
   };
