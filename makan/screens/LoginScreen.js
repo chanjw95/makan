@@ -9,6 +9,7 @@ import {
   View,
   KeyboardAvoidingView,
   Alert,
+  AsyncStorage,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { WebBrowser } from 'expo';
@@ -61,6 +62,9 @@ export default class LoginScreen extends React.Component {
         throw new Error('something went wrong')
       }
     })
+    .catch(function(error) {
+      console.log(error.message);
+    });
   }
 
   render() {
