@@ -19,31 +19,33 @@ render() {
 
           <SettingsList.Item 
             title='Account Information'
-            titleInfo=''
+            titleInfo='Username/Password'
             titleInfoStyle={styles.titleInfoStyle}
 
           onPress={() => navigate("SignUp", {screen: "SignUpScreen"})} 
           />
-          <SettingsList.Item 
-            title='Payment Cards'
-            titleInfo='Off'
-            titleInfoStyle={styles.titleInfoStyle}
-            onPress={() => Alert.alert('Route to Blutooth Page')}
-          />
+          
           <SettingsList.Item 
             title='Addresses'
             onPress={() => Alert.alert('Route To Cellular Page')}
           />
           <SettingsList.Item 
+            title='Payment Cards'
+            titleInfo=''
+            titleInfoStyle={styles.titleInfoStyle}
+            onPress={() => Alert.alert('Route to Blutooth Page')}
+          />
+          <SettingsList.Item 
             title='Customer Support'
-            titleInfo='Off'
+            titleInfo=''
             titleInfoStyle={styles.titleInfoStyle}
             onPress={() => Alert.alert('Route To Hotspot Page')}
           />
           <SettingsList.Header headerStyle={{marginTop:15}}/>
           <SettingsList.Item 
+             hasSwitch={true} 
+            hasNavArrow={false}
             title='Notifications'
-            onPress={() => Alert.alert('Route To Notifications Page')}
           />
      
 
