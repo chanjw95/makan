@@ -42,7 +42,7 @@ export default class LoginScreen extends React.Component {
   }
   handleSubmit() {
     //need to change to local ip address
-    fetch("http://192.168.1.207:3000/auth/login", {
+    fetch("http://192.168.7.24:3000/auth/login", {
       credentials: 'include',
       method: "post",
       headers: {
@@ -64,6 +64,7 @@ export default class LoginScreen extends React.Component {
     })
     .catch(function(error) {
       console.log(error.message);
+      throw error;
     });
   }
 
