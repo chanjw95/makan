@@ -10,31 +10,28 @@ import CookLoginScreen from '../screens/CookLoginScreen';
 import KitchenLoginScreen from '../screens/KitchenLoginScreen';
 import MainTabNavigator from './MainTabNavigator';
 import CookFlatList from '../components/CookList';
+import SettingsMenu from '../components/SettingsMenu';
+import AccountInfo from '../components/AccountInformation';
 
 AppRegistry.registerComponent('makan', ()=> CookFlatList);
 
-const AuthStack = createStackNavigator({ Login: LoginScreen });
-const MainPage = createStackNavigator({ MainPage: MainPageScreen});
-const SignUp = createStackNavigator({ SignUp: SignUpScreen });
-const Login = createStackNavigator({ Login: LoginScreen });
-const CustomerLoginStack = createStackNavigator({ CustomerLogin: CustomerLoginScreen });
-const CookLoginStack = createStackNavigator({ CookLogin: CookLoginScreen });
-const KitchenLoginStack = createStackNavigator({ KitchenLogin: KitchenLoginScreen });
 
-export default createAppContainer(createSwitchNavigator({
-  // You could add another route here for authentication.
-  // Read more at https://reactnavigation.org/docs/en/auth-flow.html
+const App = createStackNavigator({
+   AuthStack: { screen: LoginScreen },
+   MainPage: { screen: MainPageScreen, navigationOptions: {
+        header: null},
+ },
+   SignUp: { screen: SignUpScreen },
+   Login: { screen: LoginScreen },
+   CustomerLoginStack: { screen: CustomerLoginScreen },
+   CookLoginStack: { screen: CookLoginScreen },
+   KitchenLoginStack:{ screen: KitchenLoginScreen },   
+   SettingsMenuStack:{ screen: SettingsMenu },
+   AccountInformation: { screen: AccountInfo },
+  },
+  {
+    initialRouteName: "MainPage", 
+  }
+); 
+export default createAppContainer(App);
 
-  Main: MainTabNavigator,
-  Auth: AuthStack,
-  MainPage: MainPageScreen,
-  Login: LoginScreen,
-  SignUp: SignUpScreen,
-  CustLogin: CustomerLoginStack,
-  CookLogin: CookLoginStack,
-  KitchenLogin: KitchenLoginStack,
-},
-{
-  initialRouteName: "MainPage",
-}
-));

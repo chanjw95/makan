@@ -17,6 +17,7 @@ import { WebBrowser } from 'expo';
 import { ExpoLinksView } from '@expo/samples';
 import { MonoText } from '../components/StyledText'; 
 import {  createBottomTabNavigator } from 'react-navigation';
+import SettingsList from 'react-native-settings-list';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Akira } from 'react-native-textinput-effects';
 
@@ -26,6 +27,7 @@ import SettingsMenu from '../components/SettingsMenu';
 import MainHeader from '../components/Header'; 
  
 export class Home extends React.Component {
+
   render() {
     const HeaderTitle = { 
       Home: "Main Page Screen", 
@@ -63,12 +65,7 @@ export class Search extends React.Component {
     labelStyle={{ color: '#ac83c4' }}
   />
            <SearchListItem style={{ height:Dimensions.get('window').height -60 }}/>
-       <Text>{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
- 
-      
-       
-         
-   
+       <Text>{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text> 
       </View>
     );
   };
@@ -84,7 +81,49 @@ export class Settings extends React.Component {
 
     <View style={{flex: 1 }}>
         <MainHeader name={HeaderTitle.Settings}/>
-       <SettingsMenu  />
+       
+     <View style={{backgroundColor:'#EFEFF4',flex:1}}>
+
+      <View style={{backgroundColor:'#EFEFF4',flex:1}}>
+        <SettingsList borderColor='#c8c7cc' defaultItemSize={50}>
+          <SettingsList.Header headerStyle={{marginTop:15}}/>
+
+          <SettingsList.Item 
+            title='Account Information'
+            titleInfo='Username/Password'
+            titleInfoStyle={styles.titleInfoStyle}
+
+          onPress={() => navigate('AccountInformation')} 
+          />
+          
+          <SettingsList.Item 
+            title='Addresses'
+            onPress={() => Alert.alert('Route To Cellular Page')}
+          />
+          <SettingsList.Item 
+            title='Payment Cards'
+            titleInfo=''
+            titleInfoStyle={styles.titleInfoStyle}
+            onPress={() => Alert.alert('Route to Blutooth Page')}
+          />
+          <SettingsList.Item 
+            title='Customer Support'
+            titleInfo=''
+            titleInfoStyle={styles.titleInfoStyle}
+            onPress={() => Alert.alert('Route To Hotspot Page')}
+          />
+          <SettingsList.Header headerStyle={{marginTop:15}}/>
+          <SettingsList.Item 
+             hasSwitch={true} 
+            hasNavArrow={false}
+            title='Notifications'
+          />
+     
+
+        </SettingsList>
+      </View>
+    </View>
+
       </View>
     );
   };
@@ -113,6 +152,7 @@ Settings:Settings
         } 
         return <IconComponent name={iconName} size={25} color={tintColor} />;
       },
+
     }),
     tabBarOptions: {
       activeTintColor: 'tomato',

@@ -11,7 +11,7 @@ export class MainHeader extends React.Component {
     
   return (
     <Header style={styles.container}>
-       <Text> {this.props.name} </Text>
+       <Text style={styles.titleText} > {this.props.name} </Text>
     </Header>
   );
 }
