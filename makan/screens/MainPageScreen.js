@@ -109,8 +109,8 @@ export class Settings extends React.Component {
           <SettingsList.Item 
             title='Customer Support'
             titleInfo=''
-            titleInfoStyle={styles.titleInfoStyle}
-            onPress={() => Alert.alert('Route To Hotspot Page')}
+            titleInfoStyle={styles.titleInfoStyle} 
+          onPress={() => navigate('CustomerSupport')} 
           />
           <SettingsList.Header headerStyle={{marginTop:15}}/>
           <SettingsList.Item 

@@ -12,6 +12,7 @@ import MainTabNavigator from './MainTabNavigator';
 import CookFlatList from '../components/CookList';
 import SettingsMenu from '../components/SettingsMenu';
 import AccountInfo from '../components/AccountInformation';
+import CustSupport from '../components/CustomerSupport';
 
 AppRegistry.registerComponent('makan', ()=> CookFlatList);
 
@@ -28,6 +29,7 @@ const App = createStackNavigator({
    KitchenLoginStack:{ screen: KitchenLoginScreen },   
    SettingsMenuStack:{ screen: SettingsMenu },
    AccountInformation: { screen: AccountInfo },
+   CustomerSupport: { screen: CustSupport },
   },
   {
     initialRouteName: "MainPage", 

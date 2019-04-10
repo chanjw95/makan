@@ -13,6 +13,7 @@ titleText:{
     textAlign:'center',
       fontWeight: 'bold', 
     color: '#FFFFFF',
+    fontSize: 16,
 }
 });
   export default styles;

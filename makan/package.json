@@ -13,6 +13,7 @@
   "dependencies": {
     "@expo/samples": "2.1.1",
     "@expo/vector-icons": "^9.0.0",
+    "@types/react-native-settings-list": "^1.8.1",
     "axios": "^0.18.0",
     "expo": "^32.0.0",
     "loadash": "^1.0.0",

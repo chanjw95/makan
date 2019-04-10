@@ -18,7 +18,7 @@ export default class AccountInformation extends React.Component {
  static navigationOptions = {
     title: 'Account Information',
     headerStyle: {
-      backgroundColor: '#f4511e',
+      backgroundColor: '#FF5E3A',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
